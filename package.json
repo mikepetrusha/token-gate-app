@@ -11,6 +11,10 @@
     "format:fix": "prettier --write --ignore-path .gitignore ."
   },
   "dependencies": {
+    "@thirdweb-dev/auth": "^4.1.10",
+    "@thirdweb-dev/react": "^4.1.8",
+    "@thirdweb-dev/sdk": "^4.0.15",
+    "ethers": "5",
     "next": "14.0.2",
     "react": "^18",
     "react-dom": "^18"
