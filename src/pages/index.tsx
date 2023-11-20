@@ -1,11 +1,4 @@
-import {
-  ConnectWallet,
-  MediaRenderer,
-  useContract,
-  useContractMetadata,
-  useLogout,
-  useUser,
-} from '@thirdweb-dev/react';
+import { useLogout, useUser } from '@thirdweb-dev/react';
 import { ThirdwebSDK } from '@thirdweb-dev/sdk';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
@@ -13,15 +6,11 @@ import { getUser } from '../../auth.config';
 import { Header } from '../components/Header';
 import styles from '../styles/Home.module.css';
 import checkBalance from '../util/checkBalance';
-import { contractAddress } from '../../config';
 
 export default function Home() {
   const { isLoggedIn, isLoading } = useUser();
   const { logout } = useLogout();
   const router = useRouter();
-  const { contract } = useContract(contractAddress);
-  const { data: contractMetadata, isLoading: contractLoading } =
-    useContractMetadata(contract);
 
   useEffect(() => {
     if (!isLoading && !isLoggedIn) {
@@ -33,43 +22,10 @@ export default function Home() {
     <div className={styles.container}>
       <Header />
       <h2 className={styles.heading}>NFT Gated Content </h2>
-      <h1 className={styles.h1}>Auth</h1>
-
-      <p className={styles.explain}>
-        Serve exclusive content to users who own an NFT from <br />
-        your collection, using{' '}
-        <a
-          className={styles.link}
-          href='https://portal.thirdweb.com/auth'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Auth
-        </a>
-        .{' '}
-      </p>
 
       <div className={styles.card}>
         <h3>Exclusive unlocked</h3>
-        <p>Your NFT unlocked access to this product.</p>
 
-        {contractMetadata && (
-          <div className={styles.nft}>
-            <MediaRenderer
-              src={contractMetadata.image}
-              alt={contractMetadata.name}
-              width='70px'
-              height='70px'
-            />
-            <div className={styles.nftDetails}>
-              <h4>{contractMetadata.name}</h4>
-              <p>{contractMetadata.description}</p>
-            </div>
-          </div>
-        )}
-        {contractLoading && <p>Loading...</p>}
-
-        <ConnectWallet theme='dark' className={styles.connect} />
         <button onClick={() => logout()}>Logout</button>
       </div>
     </div>

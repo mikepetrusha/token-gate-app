@@ -14,6 +14,7 @@ import { Header } from '../components/Header';
 import styles from '../styles/Home.module.css';
 import checkBalance from '../util/checkBalance';
 import { contractAddress } from '../../config';
+import Link from 'next/link';
 
 export default function Login() {
   const { contract } = useContract(contractAddress);
@@ -33,21 +34,6 @@ export default function Login() {
     <div className={styles.container}>
       <Header />
       <h2 className={styles.heading}>NFT Gated Content </h2>
-      <h1 className={styles.h1}>Auth</h1>
-
-      <p className={styles.explain}>
-        Serve exclusive content to users who own an NFT from <br />
-        your collection, using{' '}
-        <a
-          className={styles.link}
-          href='https://portal.thirdweb.com/auth'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Auth
-        </a>
-        .{' '}
-      </p>
 
       <div className={styles.card}>
         <h3>Holder exclusive</h3>
@@ -74,6 +60,10 @@ export default function Login() {
           className={styles.connect}
           switchToActiveChain={true}
         />
+
+        <Link href='/create'>
+          <button>Create Token</button>
+        </Link>
       </div>
     </div>
   );
