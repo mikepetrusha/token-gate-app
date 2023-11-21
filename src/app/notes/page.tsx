@@ -24,7 +24,7 @@ export default function Notes() {
 
   return (
     <>
-      <pre>{JSON.stringify(notes, null, 2)}</pre>
+      <pre>{notes}</pre>
       <button onClick={handleClick}>Create Note</button>
     </>
   );
