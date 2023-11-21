@@ -8,7 +8,7 @@ export default function Notes() {
   // const cookieStore = cookies();
   // const supabase = createClient(cookieStore);
   // const { data: notes } = await supabase.from('notes').select();
-  const [notes, setNotes] = useState([]);
+  const [notes, setNotes] = useState<string>();
   const handleClick = async () => {
     await createNote('Test Note 1');
     fetchNotes();
@@ -16,7 +16,7 @@ export default function Notes() {
 
   const fetchNotes = async () => {
     const notes = await getNotes();
-    setNotes(notes.data);
+    setNotes(JSON.stringify(notes.data, null, 2));
   };
   useEffect(() => {
     fetchNotes();
