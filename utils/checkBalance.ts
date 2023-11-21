@@ -1,5 +1,5 @@
 import { detectFeatures } from '@thirdweb-dev/sdk';
-import { contractAddress } from '../../config';
+import { contractAddress } from '../config';
 
 export default async function checkBalance(sdk: any, address: string) {
   const contract = await sdk.getContract(contractAddress);

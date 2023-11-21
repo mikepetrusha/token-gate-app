@@ -9,11 +9,11 @@ import {
 import { ThirdwebSDK } from '@thirdweb-dev/sdk';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
-import { getUser } from '../../auth.config';
+import { getUser } from '../auth.config';
 import { Header } from '../components/Header';
 import styles from '../styles/Home.module.css';
-import checkBalance from '../util/checkBalance';
-import { contractAddress } from '../../config';
+import checkBalance from '../utils/checkBalance';
+import { contractAddress } from '../config';
 import Link from 'next/link';
 
 export default function Login() {

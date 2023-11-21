@@ -2,10 +2,12 @@ import { useLogout, useUser } from '@thirdweb-dev/react';
 import { ThirdwebSDK } from '@thirdweb-dev/sdk';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
-import { getUser } from '../../auth.config';
+
 import { Header } from '../components/Header';
 import styles from '../styles/Home.module.css';
-import checkBalance from '../util/checkBalance';
+import checkBalance from '../utils/checkBalance';
+import { getUser } from '../auth.config';
+import Link from 'next/link';
 
 export default function Home() {
   const { isLoggedIn, isLoading } = useUser();
@@ -26,6 +28,9 @@ export default function Home() {
       <div className={styles.card}>
         <h3>Exclusive unlocked</h3>
 
+        <Link href='/notes'>
+          <button>View restricted content</button>
+        </Link>
         <button onClick={() => logout()}>Logout</button>
       </div>
     </div>

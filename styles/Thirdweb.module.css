@@ -121,8 +121,10 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  box-shadow: 1px 1px 3px 1px rgb(20 0 50 / 19%),
-    0 0 15px 0 rgb(238 50 255 / 57%), 0 5px 53px 0 rgb(75 29 255 / 73%);
+  box-shadow:
+    1px 1px 3px 1px rgb(20 0 50 / 19%),
+    0 0 15px 0 rgb(238 50 255 / 57%),
+    0 5px 53px 0 rgb(75 29 255 / 73%);
 }
 
 .overlayLogo {

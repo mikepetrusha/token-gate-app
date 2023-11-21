@@ -10,7 +10,7 @@ import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { Header } from '../components/Header';
 import styles from '../styles/Home.module.css';
-import { contractAddress } from '../../config';
+import { contractAddress } from '../config';
 
 export default function Create() {
   const { contract } = useContract(contractAddress);
